@@ -20,35 +20,35 @@ The data is then processed via Azure Stream Analytics stored in Azure Cosmos DB 
              │
              ▼
 ┌──────────────────────────┐
-│      Azure IoT Hub        │
-│  • Receives telemetry     │
-│  • Manages devices        │
+│      Azure IoT Hub       │
+│  • Receives telemetry    │
+│  • Manages devices       │
 └────────────┬─────────────┘
              │
              ▼
 ┌──────────────────────────┐
-│  Azure Stream Analytics   │
-│  • Real-time processing   │
-│  • Filtering & aggregation│
-│  • Routing to outputs     │
+│  Azure Stream Analytics  │
+│  •Real-time processing   │
+│  •Filtering & aggregation│
+│  •Routing to outputs     │
 └─────────┬──────┬─────────┘
           │      │
           ▼      ▼
-┌────────────────────────┐     ┌────────────────────────┐
-│  Azure Cosmos DB        │     │  Azure Logic Apps /     │
-│  • Stores route history │     │  Event Grid (Alerts)   │
-└─────────┬───────────────┘     └──────────────┬────────┘
-          │                                    │
-          ▼                                    │
-┌──────────────────────────┐                   │
-│       Azure Maps          │◄─────────────────┘
-│  • Live map visualization │
-│  • Route playback         │
-└──────────┬────────────────┘
+┌────────────────────────┐     ┌──────────────────────┐
+│  Azure Cosmos DB       │     │  Azure Logic Apps /  │
+│  • Stores route history│     │  Event Grid (Alerts) │
+└─────────┬──────────────┘     └─────────────┬────────┘
+          │                                  │
+          ▼                                  │
+┌──────────────────────────┐                 │
+│       Azure Maps         │◄────────────────┘
+│  • Live map visualization│
+│  • Route playback        │
+└──────────┬───────────────┘
            │
            ▼
 ┌──────────────────────────┐
-│     Power BI Dashboard    │
-│  • Vehicle analytics      │
-│  • Speed, route, alerts   │
+│     Power BI Dashboard   │
+│  • Vehicle analytics     │
+│  • Speed, route, alerts  │
 └──────────────────────────┘
