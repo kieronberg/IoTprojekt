@@ -61,16 +61,16 @@ flowchart TB
 
     %% Systems
     iotSystem[Azure IoT Vehicle Tracking System]
-    
+
     %% External Systems
-    simDevices((Simulated Vehicles))
+    simDevices[(Simulated Vehicles)]
     powerBI[(Power BI)]
     azureMaps[(Azure Maps)]
 
     %% Relationships
-    driver -->|Views dashboard| powerBI
-    driver -->|Views live map| azureMaps
-    simDevices -->|Sends telemetry (GPS + speed)| iotSystem
-    iotSystem -->|Provides data| powerBI
-    iotSystem -->|Provides geolocation data| azureMaps
+    driver -->|"Views dashboard"| powerBI
+    driver -->|"Views live map"| azureMaps
+    simDevices -->|"Sends telemetry: GPS and speed"| iotSystem
+    iotSystem -->|"Provides data for dashboards"| powerBI
+    iotSystem -->|"Provides geolocation data"| azureMaps
 
