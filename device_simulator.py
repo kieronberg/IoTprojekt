@@ -6,14 +6,14 @@ from paho.mqtt import client as mqtt
 
 # MQTT / IoT Hub connection details (update as needed)
 path_to_root_cert = "root_cert.pem"
-device_id = "vehicle-001"
+device_id = "vehicle"
 sas_token = "device-sas-token"       # If using Azure IoT Hub MQTT
 iot_hub_name = "iot-hub-name"
 mqtt_hub_hostname = "test.mosquitto.org"
 mqtt_hub_port = 1883
 
 
-def on_connect(client, userdata, flags, str(rc)):
+def on_connect(client, userdata, flags, rc):
     print("Device connected with result code:"+ str(rc))
 
 def on_disconnect(client, userdata, rc):
@@ -34,13 +34,14 @@ def generate_vehicle_data():
     # Simulating movement within a geographic bounding box
     latitude = random.uniform(49.0000, 54.5000)
     longitude = random.uniform(14.5000, 24.0800)
-
+    vehicle_no = random.randint(1, 200)
     speed = random.uniform(20, 120)         # km/h
     fuel_level = random.uniform(10, 100)    # %
     engine_temp = random.uniform(70, 110)   # °C
 
     payload = {
         "device_id": device_id,
+        "number":vehicle_no,
         "gps": {"lat": latitude, "lon": longitude},
         "speed": speed,
         "fuel_level": fuel_level,
